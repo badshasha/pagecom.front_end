@@ -1,0 +1,3 @@
+﻿this microservice consume api from other another api microservice 
+because of that there are no any domain information
+but providing some scalability to the microservice i provide this layer

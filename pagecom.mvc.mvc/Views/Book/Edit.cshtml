@@ -1,0 +1,81 @@
+﻿@model pagecom.mvc.application.Dto.Book.BookViewDto
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">Edit prodcut information</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a asp-controller="Book" asp-action="Details" asp-route-id="@Model.Id">back to details</a></li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-danger" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            Delete Product                          
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Product section-->
+        <section class="py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6">
+                    <img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." />
+                    <a class="mt-2" href="">update image</a>
+                </div>
+                <div class="col-md-6">
+                    <div class="small mb-1">productId : @Model.Id</div>
+                    <h1 class="display-6 fw-bolder">@Model.Name.ToUpper()</h1>
+                    <div class="fs-5 mb-1">
+                        <span>price : </span>
+                        <span>$ @Model.Price</span>
+                    </div>
+                <div class="fs-5 mb-1">
+                    <span>Description : </span>
+                    <p class="lead">@Model.Description</p>
+                </div>
+
+
+               
+                    <form asp-controller="Book" asp-action="Edit"  method="post">
+                        <div class="form-group">
+                            <label asp-for="@Model.Name"></label>
+                            <input class="form-control" aria-describedby="emailHelp" asp-for="@Model.Name" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">after submit you cannot undo this </small>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="@Model.Description"></label>
+                            <input class="form-control" asp-for="@Model.Description" >                            
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="@Model.Price"></label>
+                            <input class="form-control"  asp-for="@Model.Price" >
+                            
+                        </div>
+                       
+                     
+                        <button asp-route-id="@Model.Id" type="submit" class="btn btn-primary mt-2">Submit</button>
+                    </form>
+
+               
+
+
+             
+           
+                </div>
+            </div>
+        </div>
+        </section>

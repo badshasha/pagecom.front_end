@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - pagecom.mvc.mvc</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/pagecom.mvc.mvc.styles.css" asp-append-version="true"/>
+
+    @* <link href="~/assets/css/style-starter.css" rel="stylesheet" /> *@
+    @* <a href="~/assets/fonts/fontawesome.otf"></a> *@
+    @* <a href="~/assets/fonts/fontawesome-webfont.eot"></a> *@
+    @* <img src="~/assets/fonts/fontawesome-webfont.svg" /> *@
+    @* <a href="~/assets/fonts/fontawesome-webfont.ttf"></a> *@
+    @* <a href="~/assets/fonts/fontawesome-webfont.woff"></a> *@
+    @* <a href="~/assets/fonts/fontawesome-webfont.woff2"></a> *@
+    @* *@
+    @* <script src="~/assets/js/bootstrap.min.js"></script> *@
+    @* <script src="~/assets/js/jquery-3.3.1.min.js"></script> *@
+    @* <script src="~/assets/js/owl.carousel.js"></script> *@
+    @* <script src="~/assets/js/theme-change.js"></script> *@
+
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">pagecom.mvc.mvc</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index">Book</a>
+                    </li>
+                  
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Secure" asp-action="Logout">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="GetCurrentCart">Cart</a>
+                        </li>
+                    }
+                   
+                    
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+    <!--header-->
+    @* <header id="site-header" class="fixed-top"> *@
+    @*     <div class="container"> *@
+    @*         <nav class="navbar navbar-expand-lg stroke p-0"> *@
+    @*             <h1> *@
+    @*                 <a class="navbar-brand" href="index.html"> *@
+    @*                     <span class="fa fa-bell-o"></span> Blog Store *@
+    @*                 </a> *@
+    @*             </h1> *@
+    @*             <!-- if logo is image enable this *@
+    @*             <a class="navbar-brand" href="#index.html"> *@
+    @*                 <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" /> *@
+    @*             </a> --> *@
+    @*             <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" *@
+    @*                     data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" *@
+    @*                     aria-label="Toggle navigation"> *@
+    @*                 <span class="navbar-toggler-icon fa icon-expand fa-bars"></span> *@
+    @*                 <span class="navbar-toggler-icon fa icon-close fa-times"></span> *@
+    @*             </button> *@
+    @*              *@
+    @*             $1$ links applys hear #1# *@
+    @*              *@
+    @*              *@
+    @*             <div class="collapse navbar-collapse" id="navbarTogglerDemo02"> *@
+    @*                 <ul class="navbar-nav ml-lg-5 mr-lg-auto"> *@
+    @*                     <li class="nav-item active"> *@
+    @*                         <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a> *@
+    @*                     </li> *@
+    @*                     <li class="nav-item @@about__active"> *@
+    @*                         <a class="nav-link" href="about.html">About</a> *@
+    @*                     </li> *@
+    @*                     <li class="nav-item @@contact__active"> *@
+    @*                         <a class="nav-link" href="contact.html">Contact</a> *@
+    @*                     </li> *@
+    @*                 </ul> *@
+    @* *@
+    @*                 <!--/search-right--> *@
+    @*                 <div class="navbar-nav search-right nav-item dropdown"> *@
+    @*                     <a class="nav-link dropdown-toggle" href="#Pages" id="navbarDropdown" role="button" *@
+    @*                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> *@
+    @*                         <span class="fa fa-search"></span> *@
+    @*                     </a> *@
+    @*                     <div class="dropdown-menu" aria-labelledby="navbarDropdown"> *@
+    @*                         <div class="search_form"> *@
+    @*                             <form action="search-results.html" method="GET"> *@
+    @*                                 <input type="text" placeholder="Search"> *@
+    @*                                 <button type="submit" class="btn" value=""> *@
+    @*                                     <span class="fa fa-search" *@
+    @*                                           aria-hidden="true"></span> *@
+    @*                                 </button> *@
+    @*                             </form> *@
+    @*                         </div> *@
+    @*                     </div> *@
+    @*                 </div> *@
+    @*                 <!--//search-right--> *@
+    @*             </div> *@
+    @*             <!-- toggle switch for light and dark theme --> *@
+    @*             <div class="mobile-position"> *@
+    @*                 <nav class="navigation"> *@
+    @*                     <div class="theme-switch-wrapper"> *@
+    @*                         <label class="theme-switch" for="checkbox"> *@
+    @*                             <input type="checkbox" id="checkbox"> *@
+    @*                             <div class="mode-container"> *@
+    @*                                 <i class="gg-sun"></i> *@
+    @*                                 <i class="gg-moon"></i> *@
+    @*                             </div> *@
+    @*                         </label> *@
+    @*                     </div> *@
+    @*                 </nav> *@
+    @*             </div> *@
+    @*             <!-- //toggle switch for light and dark theme --> *@
+    @*         </nav> *@
+    @*     </div> *@
+    @* </header> *@
+    <!--/header-->
+
+
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2022 - pagecom.mvc.mvc - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+
+
+
+    <!-- //home page section -->
+    <!-- footer -->
+    @* <footer class="py-5"> *@
+    @*     <div class="container pt-md-5"> *@
+    @*         <div class="footer-logo mb-lg-5 mb-4 text-center"> *@
+    @*             <a class="navbar-brand" href="index.html"><span class="fa fa-bell-o"></span> Blog Store</a> *@
+    @*             <p> *@
+    @*                 We want to provide you with a great experience. Your feedback helps us *@
+    @*                 bring you more of the events you love and the service you expect. *@
+    @*             </p> *@
+    @*         </div> *@
+    @*         <div class="footer-grid"> *@
+    @*             <div class="w3l-copyright text-center"> *@
+    @*                 <div class="social text-center"> *@
+    @*                     <ul class="d-flex justify-content-center"> *@
+    @*                         <li class="mx-md-2 mx-1"><a href="#url" class="facebook"><span class="fab fa-facebook-f"></span></a></li> *@
+    @*                         <li class="mx-md-2 mx-1"><a href="#url" class="twitter"><span class="fab fa-twitter"></span></a></li> *@
+    @*                         <li class="mx-md-2 mx-1"><a href="#url" class="rss"><span class="fas fa-rss"></span></a></li> *@
+    @*                         <li class="mx-md-2 mx-1"><a href="#url" class="linkedin"><span class="fab fa-linkedin-in"></span></a></li> *@
+    @*                         <li class="mx-md-2 mx-1"><a href="#url" class="google"><span class="fab fa-google-plus"></span></a></li> *@
+    @*                     </ul> *@
+    @*                 </div> *@
+    @*                 <p class="mt-4"> *@
+    @*                     © 2020 Blog Store. All Rights Reserved | Design by <a href="http://w3layouts.com/" *@
+    @*                                                                           target="=_blank"> *@
+    @*                         W3layouts *@
+    @*                     </a> *@
+    @*                 </p> *@
+    @*             </div> *@
+    @*         </div> *@
+    @* *@
+    @*     </div> *@
+    @* </footer> *@
+    <!-- footer -->
+
+
+</body>
+</html>

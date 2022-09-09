@@ -1,0 +1,51 @@
+﻿@model pagecom.mvc.application.Dto.User.UserDTO
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+
+
+@* <a asp-controller="Book" asp-action="Create">create new book</a> *@
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">purches history</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link" asp-controller="Cart" asp-action="GetCurrentCart">Get current cart</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Deliverd</th>
+        <th scope="col">added time</th>
+        <th scope="col">getDetails</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    @foreach (var entity in Model.carts)
+    {
+        <tr>
+            <th scope="row">@entity.Id</th>
+            <td>@entity.Delivery</td>
+            <td>@entity.AddDateTime</td>
+            <td>
+                <a asp-action="GetCartProduct" asp-controller="Cart" asp-route-id="@entity.Id" class="btn btn-primary">see all the product</a>
+            </td>
+        </tr> 
+    }
+
+    </tbody>
+</table>
+

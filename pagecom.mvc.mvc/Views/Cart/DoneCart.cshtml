@@ -1,0 +1,111 @@
+﻿@model pagecom.mvc.application.Dto.Cart.DoneCartDTO
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+<div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-8 col-lg-offset-2">
+
+        <h1>Contact form </h1>
+
+        <p class="lead">add you current details </p>
+        <p>
+          process cannot undo  <br>
+          make sure add your correct information and validate before submit
+        </p>
+        
+
+        <form id="contact-form" method="post"  asp-action="DoneCartPost" asp-controller="Cart"  role="form">
+
+        <div class="messages"></div>
+
+        <div class="controls">
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label asp-for="userId">User ID</label>
+                <input id="form_name" asp-for="userId"  value="@Model.userId" class="form-control" >
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label asp-for="CartId">cart Id</label>
+                <input id="form_lastname"  class="form-control" asp-for="CartId" value="@Model.CartId">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label asp-for="Email">Email *</label>
+                <input id="form_email" type="email"  class="form-control" asp-for="Email" placeholder="@Model.Email">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label asp-for="contactNumber">Phone</label>
+                <input id="form_phone"  class="form-control" type="tel" asp-for="contactNumber">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+          
+          @* address information *@
+            <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label asp-for="laneNumber"></label>
+                          <input  class="form-control" asp-for="laneNumber">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label asp-for="laneName"></label>
+                          <input  class="form-control" asp-for="laneName">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                           <label asp-for="city"></label>
+                          <input class="form-control" asp-for="city">
+                        </div>
+                    </div>
+                </div>
+          </div>
+          
+          
+          
+          
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="form_message">Message *</label>
+                <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <input type="submit" class="btn btn-primary btn-send mt-2"  value="Send message">
+            </div>
+          </div>
+         
+         
+        
+    
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>

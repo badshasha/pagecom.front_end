@@ -1,0 +1,51 @@
+﻿@model List<pagecom.mvc.application.Dto.Book.BookViewDto>;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+ <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Shop in style</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+                </div>
+            </div>
+</header>
+
+
+<form>
+    <div class="container row">
+        
+        @foreach (var product in @Model)
+        {
+
+            <div class="col-4 ">
+                <div class="p-0 my-3 border">
+                    <div class="card">
+                        @* <img src="" class="card-img-top"> *@
+                        <!-- Product image-->
+                             <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body">
+
+                            <h3 class="card-title text-success">@product.Name</h3>
+                            <span class="badge badge-light mb-2 ">CategoryName</span>
+                            <p class="card-text">@product.Description</p>
+                            <div class="row">
+                                <div class="col pt-1">
+                                    <span style="font-size:23px;">@string.Format("{0:c},",product.Price)</span>
+                                </div>
+                                <div class="col">
+                                    <a asp-action="Details" asp-controller="Home" asp-route-id="@product.Id" class="btn btn-success form-control">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+ 
+    </div>
+</form>

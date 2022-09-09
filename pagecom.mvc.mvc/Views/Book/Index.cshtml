@@ -1,0 +1,50 @@
+﻿@model System.Collections.Generic.List<pagecom.mvc.application.Dto.Book.BookViewDto>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>title</h2>
+
+
+welcome to book homepage @User.Identity.Name
+
+
+
+<a asp-controller="Book" asp-action="Create">create new book</a>
+
+<table class="table table-striped">
+<thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">name</th>
+      <th scope="col">Description</th>
+      <th scope="col">price</th>
+    </tr>
+  </thead>
+<tbody>
+
+@foreach (var entity in Model)
+{
+    <tr>
+        <th scope="row">@entity.Id</th>
+        <td><a asp-controller="Book" asp-action="Details" asp-route-id="@entity.Id">@entity.Name</a></td>
+        <td>@entity.Description</td>
+        <td>@entity.Price</td>
+    </tr> 
+}
+
+</tbody>
+</table>
+
+
+
+
+@section Scripts
+{
+    
+    <script>
+        console.log("working fine");
+    </script>
+}

@@ -1,0 +1,50 @@
+﻿@model System.Collections.Generic.List<pagecom.mvc.application.Dto.Cart.Cart_BookDTO>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#!">purches history</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link" asp-controller="Cart" asp-action="GetCurrentCart">Get current cart</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Cart" asp-action="GetHistory">Get History</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+</nav>
+
+
+@* <a asp-controller="Book" asp-action="Create">create new book</a> *@
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Book name</th>
+        <th scope="col">Quentity</th>
+        <th scope="col">getDetails</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    @foreach (var entity in Model)
+    {
+        <tr>
+            <th scope="row">@entity.Id</th>
+            <td>@entity.BookName</td>
+            <td>@entity.Quentity</td>
+            <td>
+                <a asp-action="GetProductInfomation" asp-controller="Cart" class="btn btn-primary" asp-route-id="@entity.BookId">see product details</a>
+            </td>
+        </tr> 
+    }
+
+    </tbody>
+</table>
+

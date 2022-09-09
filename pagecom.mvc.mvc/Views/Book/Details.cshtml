@@ -1,0 +1,58 @@
+﻿@model pagecom.mvc.application.Dto.Book.BookViewDto
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">prodcut information</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link" href="#!">Get Selling Details</a></li>
+                    </ul>
+                    
+                        <a class="btn btn-danger" asp-action="Delete" asp-controller="Book" asp-route-id="@Model.Id">Delete Product                    
+                        </a>
+                    
+                </div>
+            </div>
+        </nav>
+        <!-- Product section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 align-items-center">
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+                    <div class="col-md-6">
+                        <div class="small mb-1">productId : @Model.Id</div>
+                        <h1 class="display-5 fw-bolder">@Model.Name.ToUpper()</h1>
+                        <div class="fs-5 mb-5">
+                            @* <span class="text-decoration-line-through">$ @Model.Price</span> *@
+                            <span>$ @Model.Price</span>
+                        </div>
+                        <p class="lead">@Model.Description</p>
+                        <div class="d-flex">
+                        @*     <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /> *@
+                        @*     <button class="btn btn-outline-dark flex-shrink-0" type="button" disabled> *@
+                        @*         <i class="bi-cart-fill me-1"></i> *@
+                        @*         Add to cart *@
+                        @*     </button> *@
+                        @*    update part   *@
+                            @*  <button class="btn btn-primary flex-shrink-0" type="button" asp-controller="book" asp-action="Edit" asp-route-id="@Model.Id" > *@
+                            @*      <i class="bi-cart-fill me-1"></i> *@
+                            @*      update *@
+                        @* </button> *@
+                        <a asp-action="Edit" asp-controller="Book" asp-route-id="@Model.Id" class="btn btn-primary">update</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
